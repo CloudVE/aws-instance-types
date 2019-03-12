@@ -1,0 +1,10 @@
+language: python
+python:
+  - "3.6"
+install:
+  - pip install git+https://github.com/CloudVE/cloudbridge
+jobs:
+  include:
+    - script: travis_wait 50 python update_files.py first && source ./push.sh
+    - script: travis_wait 50 python update_files.py second && source ./push.sh
+
