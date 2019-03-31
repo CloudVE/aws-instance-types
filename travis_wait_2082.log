@@ -1,49 +1,55 @@
 Regions for which zones will be updated:
-['eu-north-1', 'ap-south-1', 'eu-west-3', 'eu-west-2', 'eu-west-1', 'ap-northeast-2', 'ap-northeast-1', 'sa-east-1']
+['ca-central-1', 'ap-southeast-1', 'ap-southeast-2', 'eu-central-1', 'us-east-1', 'us-east-2', 'us-west-1', 'us-west-2']
 Zone currently being updated:
-eu-north-1a
+ca-central-1a
 Zone currently being updated:
-eu-north-1b
+ca-central-1b
 Zone currently being updated:
-eu-north-1c
+ap-southeast-1a
 Zone currently being updated:
-ap-south-1a
+ap-southeast-1b
 Zone currently being updated:
-ap-south-1b
+ap-southeast-1c
 Zone currently being updated:
-eu-west-3a
+ap-southeast-2a
 Zone currently being updated:
-eu-west-3b
+ap-southeast-2b
 Zone currently being updated:
-eu-west-3c
+ap-southeast-2c
 Zone currently being updated:
-eu-west-2a
+eu-central-1a
 Zone currently being updated:
-eu-west-2b
+eu-central-1b
 Zone currently being updated:
-eu-west-2c
+eu-central-1c
 Zone currently being updated:
-eu-west-1a
+us-east-1a
 Zone currently being updated:
-eu-west-1b
+us-east-1b
 Zone currently being updated:
-eu-west-1c
+us-east-1c
 Zone currently being updated:
-ap-northeast-2a
+us-east-1d
 Zone currently being updated:
-ap-northeast-2c
+us-east-1e
 Zone currently being updated:
-ap-northeast-1a
+us-east-1f
 Zone currently being updated:
-ap-northeast-1b
+us-east-2a
 Zone currently being updated:
-ap-northeast-1c
+us-east-2b
 Zone currently being updated:
-ap-northeast-1d
+us-east-2c
 Zone currently being updated:
-sa-east-1a
+us-west-1a
 Zone currently being updated:
-sa-east-1b
+us-west-1c
 Zone currently being updated:
-sa-east-1c
+us-west-2a
+Zone currently being updated:
+us-west-2b
+Zone currently being updated:
+us-west-2c
+Zone currently being updated:
+us-west-2d
 Done :)
