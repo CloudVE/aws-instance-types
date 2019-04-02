@@ -29,8 +29,11 @@ def get_all_info_from_json_file():
 
 def get_info_for_vm_type(vm_type_id):
     all_info = get_all_info_from_json_file()
-    return all_info.get(vm_type_id, None)
-
+    vmtype_info = all_info.get(vm_type_id, None)
+    if vmtype_info and vmtype_info.get("pricing", None):
+    	# Removing pricing information to make files smaller
+    	vmtype_info.pop('pricing')
+    return vmtype_info
 
 def get_all_region_names():
     return [region['RegionName'] for region in
