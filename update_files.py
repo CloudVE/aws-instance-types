@@ -74,9 +74,9 @@ def list_vm_types_in_zone(zone_name):
     return vm_types
 
 
-def update_files_for_first_half():
+def update_files_for_first_third():
     regions = get_all_region_names()
-    regions = regions[:int(len(regions)/2)]
+    regions = regions[:int(len(regions)/3)]
     print("Regions for which zones will be updated:")
     print(regions)
     for region in regions:
@@ -88,9 +88,23 @@ def update_files_for_first_half():
                 file.write(json.dumps((list_vm_types_in_zone(zone))))
 
 
-def update_files_for_second_half():
+def update_files_for_second_third():
     regions = get_all_region_names()
-    regions = regions[int(len(regions)/2):]
+    regions = regions[int(len(regions)/3):2*int(len(regions)/3)]
+    print("Regions for which zones will be updated:")
+    print(regions)
+    for region in regions:
+        zones = get_all_zones_in_region(region)
+        for zone in zones:
+            print("Zone currently being updated:")
+            print(zone)
+            with open(vmtypes_dirpath + zone + '.json', 'w') as file:
+                file.write(json.dumps((list_vm_types_in_zone(zone))))
+
+
+def update_files_for_last_third():
+    regions = get_all_region_names()
+    regions = regions[2*int(len(regions)/3):]
     print("Regions for which zones will be updated:")
     print(regions)
     for region in regions:
@@ -117,16 +131,18 @@ def update_files_test():
 
 
 def main():
-    half = sys.argv[1]
-    if half == 'test':
+    part = sys.argv[1]
+    if part == 'test':
         update_files_test()
-    elif half == 'first':
-        update_files_for_first_half()
-    elif half == 'second':
-        update_files_for_second_half()
+    elif part == 'first':
+        update_files_for_first_third()
+    elif part == 'second':
+        update_files_for_second_third()
+    elif part == 'third':
+        update_files_for_last_third()
     else:
         msg = 'The script takes a string argument.\n' \
-              'Accepted values are: [first, second]\n' \
+              'Accepted values are: [first, second, third, test]\n' \
               'Example: python3 update_files.py first\n'
         print(msg)
 
