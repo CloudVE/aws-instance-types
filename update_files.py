@@ -60,8 +60,8 @@ def list_vm_types_in_zone(zone_name):
                    in result.get('ReservedInstancesOfferings')))
     # Stop if 10 pages in a row did not add any VM
     num = len(ids)
-    count = 0
-    while result.get('NextToken') and count < 50:
+    count_same = 0
+    while result.get('NextToken') and count_same < 50:
         result = (aws.ec2_conn.meta.client
                      .describe_reserved_instances_offerings(
                          AvailabilityZone=zone_name,
@@ -71,9 +71,9 @@ def list_vm_types_in_zone(zone_name):
             if vm_type_id not in ids:
                 ids.append(vm_type_id)
         if len(ids) == num:
-            count += 1
+            count_same += 1
         else:
-            count = 0
+            count_same = 0
             num = len(ids)
     # Removing instances that we don't have information about from the
     # json file. eg: r5.metal, m5d.metal, z1d.metal
