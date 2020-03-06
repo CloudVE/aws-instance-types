@@ -58,12 +58,10 @@ def list_vm_types_in_zone(zone_name):
                      AvailabilityZone=zone_name))
     ids = list(set(offering.get('InstanceType') for offering
                    in result.get('ReservedInstancesOfferings')))
-    print("Gathered {} vmtypes from the first page".format(len(ids)))
     # Stop if 10 pages in a row did not add any VM
     num = len(ids)
     count = 0
     while result.get('NextToken') and count < 50:
-        print("Gathering next page")
         result = (aws.ec2_conn.meta.client
                      .describe_reserved_instances_offerings(
                          AvailabilityZone=zone_name,
