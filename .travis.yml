@@ -12,6 +12,6 @@ jobs:
     - stage: First Third
       script: travis_wait 50 python update_files.py first && source ./push.sh
     - stage: Second Third
-      script: travis_wait 50 python update_files.py second && source ./push.sh
+      script: git pull --no-edit && git checkout master && travis_wait 50 python update_files.py second && source ./push.sh
     - stage: Last Third
-      script: travis_wait 50 python update_files.py third && source ./push.sh
+      script: git pull --no-edit && git checkout master && travis_wait 50 python update_files.py third && source ./push.sh

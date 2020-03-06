@@ -52,7 +52,6 @@ def get_all_zones_in_region(region_name):
 
 
 def list_vm_types_in_zone(zone_name):
-    print("Calling 'aws.ec2_conn.meta.client.describe_reserved_instances_offerings'")
     result = (aws.ec2_conn.meta.client
                  .describe_reserved_instances_offerings(
                      AvailabilityZone=zone_name))
