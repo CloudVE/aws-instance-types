@@ -4,14 +4,7 @@ python:
 install:
   - pip install git+https://github.com/CloudVE/cloudbridge
 jobs:
-  allow_failures:
-    - stage: First Third
-    - stage: Second Third
-    - stage: Last Third
   include:
-    - stage: First Third
-      script: travis_wait 50 python update_files.py first && source ./push.sh
-    - stage: Second Third
-      script: git pull --no-edit && git checkout master && travis_wait 50 python update_files.py second && source ./push.sh
-    - stage: Last Third
-      script: git pull --no-edit && git checkout master && travis_wait 50 python update_files.py third && source ./push.sh
+    - stage: Update files on GitHub
+      script: travis_wait 60 python update_files.py all && python s3_push.py && sh ./push.sh
+
