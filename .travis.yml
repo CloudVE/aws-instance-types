@@ -6,5 +6,5 @@ install:
 jobs:
   include:
     - stage: Update files on GitHub
-      script: travis_wait 60 python update_files.py all && python s3_push.py && sh ./push.sh
+      script: travis_wait 60 python update_files.py all && sh push.sh
 
