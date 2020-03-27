@@ -15,4 +15,5 @@ for zone_file in listdir(vmtypes_dirpath):
     if isfile(path):
         o = bucket.objects.create(zone_file)
         o.upload_from_file(path)
-        o._obj.put(ACL='public-read')
+        o._obj.Acl().put(ACL='public-read')
+
